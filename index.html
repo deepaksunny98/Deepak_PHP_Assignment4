@@ -1,0 +1,45 @@
+<html>
+<head>
+</head>
+ <body>
+ <div id="display">
+ </div>
+<p><input id="username" type="text" name="username"></p>
+ <p><input id="message" type="text" name="message"></p>
+
+ <p>
+ <button type="button" onclick="postdata()">Submit Message</button>
+ </p>
+ </body>
+<script>  
+function getmessage() {
+    if (window.XMLHttpRequest) {
+        xmlhttp=new XMLHttpRequest();
+      } else { 
+        xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+      }
+      xmlhttp.onreadystatechange=function() {
+        if (this.readyState==4 && this.status==200) {
+          document.getElementById("display").innerHTML=this.responseText;
+        }
+      }
+      xmlhttp.open("GET","messages.php",true);
+      xmlhttp.send();
+}
+
+function postdata() {
+    var formData = new FormData();
+
+    formData.append("username", document.getElementById("username").value);
+    formData.append("message", document.getElementById("message").value);
+  
+    var request = new XMLHttpRequest();
+    request.open("POST", "input.php");
+    request.send(formData);
+}
+getmessage();
+setInterval(function(){
+    getmessage();
+},1000);
+ </script>
+ </html>

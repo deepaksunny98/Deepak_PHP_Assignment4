@@ -1,0 +1,37 @@
+form {
+    padding: 20px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+p {
+    text-align: center;
+    font-size: 1.2em;
+}
+
+h1, h2 {
+    text-align: center;
+    padding-bottom: 10px;
+}
+
+h4 {
+    text-align: center;
+    color: green;
+}
+
+div {
+    display: flex;
+    justify-content: center;
+}
+
+.error {
+    color: red;
+}
+
+#cancel{
+    background-color: #f2e6ff;
+}
+
+input[type=submit]{
+    background-color: #f2e6ff;
+}
